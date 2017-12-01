@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Zombie Tracker</title>
+        <meta http-equiv="refresh" content="10">
+	<style>
+		#map {
+		 width: 80%;
+		 height: 800px;
+		 background-color: black;
+		 margin: auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="map">
+		<script>
+			function initMap() {
+				var myLat = 53.8744333;
+				var myLng = -1.0396367;
+				var MyLocation =  {lat: myLat, lng: myLng};
+				var Zombie1 =  {lat: 53.8745693, lng: -1.0404764};
+				var Zombie2 =  {lat: 53.8743231, lng: -1.0401889};
+				
+				var zombie = 'zombie-icon.png';
+				
+				var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 18,
+					center: MyLocation,
+					mapTypeId: 'satellite'
+				});
+				
+				var marker = new google.maps.Marker({
+					position: Zombie1,
+					map: map,
+					title: 'Zombie!',
+					icon: zombie
+				});
+				
+				var marker = new google.maps.Marker({
+					position: Zombie2,
+					map: map,
+					title: 'Zombie!',
+					icon: zombie
+				});
+				
+				var marker = new google.maps.Marker({
+					position: MyLocation,
+					map: map,
+					title: 'Me!',
+				});
+			}
+		</script>
+	</div>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=<YOUR GOOGLE MAPS KEY>&callback=initMap"></script>
+</body>
+</html>
